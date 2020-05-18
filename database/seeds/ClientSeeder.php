@@ -11,8 +11,12 @@ class ClientSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Client::class, 50)->create();
-        factory(\App\Message::class, 50)->create()->each(function ($message) {
+        $arr = range(0, 2000);
+        foreach($arr as $index) {
+            factory(\App\Client::class, 500)->create();
+        }
+
+        factory(\App\Message::class, 10000)->create()->each(function ($message) {
             $message->schedules()->save(factory(App\ScheduleMessage::class)->make());
         });
     }

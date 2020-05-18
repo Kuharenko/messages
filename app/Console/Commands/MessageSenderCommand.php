@@ -64,7 +64,7 @@ class MessageSenderCommand extends Command
                         if ($diff === 0) {
                             SendMessage::dispatch($client, $schedule_message->message);
                         } else {
-                            SendMessage::dispatch($client, $schedule_message)->delay(60 * 60 * $diff);
+                            SendMessage::dispatch($client, $schedule_message->message)->delay(60 * 60 * $diff);
                         }
                     }
                 });
